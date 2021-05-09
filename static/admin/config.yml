@@ -73,7 +73,7 @@ collections:
         collection: 'page'
         display_fields: ['title']
         search_fields: ['title']
-        value_field: 'title'
+        value_field: 'path'
         multiple: true
         required: false
       - label: 'Add to specific daily menu page'
@@ -82,7 +82,7 @@ collections:
         collection: daily-menu
         display_fields: ['title']
         search_fields: ['title']
-        value_field: 'title'
+        value_field: 'path'
         multiple: true
         required: false
       - { label: 'Contenido', name: 'content', widget: 'markdown' }
