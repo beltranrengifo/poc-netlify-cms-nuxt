@@ -1,34 +1,50 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">runners-project-cms</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+  <section class="container flex-col">
+    <h1 class="text-4xl">{{ title }}</h1>
+    <h2 class="text-2xl">{{ description }}</h2>
+    <ul>
+      <n-link
+        v-for="item in navigation"
+        :key="item.to"
+        :to="item.to"
+        class="block underline"
+      >
+        {{ item.text }}
+      </n-link>
+      <li>...</li>
+    </ul>
+    <ul>
+      <n-link
+        v-for="menu in menus"
+        :key="menu.path"
+        :to="menu.path"
+        class="block underline"
+      >
+        {{ menu.title }}
+      </n-link>
+      <li>...</li>
+    </ul>
+    <n-link to="/contact" class="block underline">Contacto</n-link>
+  </section>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
+  name: 'Home',
+
+  async asyncData({ $content }): Promise<Object> {
+    const { menu: navigation, title, description } = await $content(
+      'page',
+      'home'
+    ).fetch()
+
+    const menus = await $content('menu').only(['title']).fetch()
+
+    return { navigation, menus, title, description }
+  },
+
   head() {
     return {
       script: [
