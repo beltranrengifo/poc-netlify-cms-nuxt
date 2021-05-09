@@ -20,7 +20,7 @@
         :to="menu.path"
         class="block underline"
       >
-        {{ menu.title }} - {{ menu.path }}
+        {{ menu.title }}
       </n-link>
       <li>...</li>
     </ul>

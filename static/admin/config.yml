@@ -9,16 +9,17 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'menu'
-    label: 'Menu'
-    folder: 'content/menu'
+  - name: 'daily menu'
+    label: 'Daily Menu'
+    folder: 'content/daily-menu'
     format: 'frontmatter'
     create: true
     slug: '{{slug}}'
     editor:
-      preview: false
+      preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Title', name: 'title', widget: 'string', tagname: 'h1' }
+      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
       - { label: 'Description', name: 'description', widget: 'string' }
   - name: 'page'
     label: 'Page'
@@ -27,9 +28,10 @@ collections:
     create: true
     slug: '{{slug}}'
     editor:
-      preview: false
+      preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Title', name: 'title', widget: 'string', tagname: 'h1' }
+      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
       - { label: 'Description', name: 'description', widget: 'string' }
       - label: 'Navigation'
         name: 'menu'
@@ -42,7 +44,8 @@ collections:
     create: true
     slug: '{{slug}}'
     editor:
-      preview: false
+      preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Title', name: 'title', widget: 'string', tagname: 'h1' }
+      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
       - { label: 'Description', name: 'description', widget: 'string' }
