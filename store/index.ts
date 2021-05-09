@@ -20,6 +20,6 @@ export const actions: ActionTree<RootState, RootState> = {
 
 export const mutations: MutationTree<RootState> = {
   SET_ACTIVE_MODALS(state, payload) {
-    state.activeModals = { ...payload }
+    state.activeModals = payload
   },
 }
