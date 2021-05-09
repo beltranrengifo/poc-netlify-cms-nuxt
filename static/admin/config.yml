@@ -49,3 +49,24 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string', tagname: 'h1' }
       - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
       - { label: 'Description', name: 'description', widget: 'string' }
+      - {
+          label: 'Use this modal in all pages',
+          name: 'global',
+          widget: 'boolean',
+        }
+      - label: 'Add to specific pages'
+        name: 'include-in-pages'
+        widget: 'relation'
+        collection: 'page'
+        display_fields: ['title']
+        search_fields: ['title']
+        value_field: 'title'
+        multiple: true
+      - label: 'Add to specific daily menu page'
+        name: 'include-in-daily-menus'
+        widget: 'relation'
+        collection: 'daily-menu'
+        display_fields: ['title']
+        search_fields: ['title']
+        value_field: 'title'
+        multiple: true
