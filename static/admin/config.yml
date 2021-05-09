@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: master
 
+publish_mode: editorial_workflow
+site_url: https://xenodochial-hamilton-db3de6.netlify.app/
+
 media_folder: static/img
 public_folder: /img
 
