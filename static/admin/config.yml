@@ -86,4 +86,3 @@ collections:
         multiple: true
         required: false
       - { label: 'Contenido', name: 'content', widget: 'markdown' }
-      - { label: 'Image', name: 'image', widget: 'image' }
