@@ -1,7 +1,8 @@
 ---
 title: Modal demo
 description: Vamos a cerrar por obras
-include-in-pages: ''
-include-in-daily-menus: ''
-global: true
+global: false
+include-in-pages:
+  - Grupo La Musa
+include-in-daily-menus: ""
 ---
