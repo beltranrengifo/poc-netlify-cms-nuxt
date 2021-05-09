@@ -1,4 +1,3 @@
-import axios from 'axios'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -58,4 +57,14 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  hooks: {
+    'content:file:beforeParse': (file) => {
+      // console.log('hook', file)
+    },
+    'content:file:beforeInsert': (document) => {
+      console.log('content:file:beforeInsert', document)
+      document.testing = document.path
+    },
+  },
 }
