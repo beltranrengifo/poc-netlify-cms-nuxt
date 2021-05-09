@@ -2,8 +2,7 @@ import { GetterTree, ActionTree, MutationTree } from 'vuex'
 
 export const state = () => ({
   modals: [] as any,
-  modalContent: {} as object,
-  showModal: false as boolean,
+  activeModals: [] as any,
 })
 
 export type RootState = ReturnType<typeof state>
@@ -15,7 +14,7 @@ export const getters: GetterTree<RootState, RootState> = {
 }
 
 export const actions: ActionTree<RootState, RootState> = {
-  async nuxtServerInit({ commit }, { $content }) {
+  /* async nuxtServerInit({ commit }, { $content }) {
     try {
       const modals = await $content('modal').fetch()
       commit('SET_MODALS', modals)
@@ -23,11 +22,10 @@ export const actions: ActionTree<RootState, RootState> = {
     } catch (e) {
       return false
     }
-  },
+  }, */
 
-  handleModal({ commit }, { showModal, content }) {
-    commit('SET_MODAL_VISIBILITY', showModal)
-    commit('SET_MODAL_CONTENT', content)
+  handleModal({ commit }, { activeModals }) {
+    commit('SET_ACTIVE_MODALS', activeModals)
   },
 }
 
@@ -36,10 +34,7 @@ export const mutations: MutationTree<RootState> = {
     state.modals = [...payload]
   },
 
-  SET_MODAL_VISIBILITY(state, payload) {
-    state.showModal = payload
-  },
-  SET_MODAL_CONTENT(state, payload) {
-    state.modalContent = { ...payload }
+  SET_ACTIVE_MODALS(state, payload) {
+    state.activeModals = { ...payload }
   },
 }

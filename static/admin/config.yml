@@ -68,7 +68,7 @@ collections:
           required: false,
         }
       - label: 'Add to specific pages'
-        name: 'include-in-pages'
+        name: 'includeInPages'
         widget: 'relation'
         collection: 'page'
         display_fields: ['title']
@@ -77,7 +77,7 @@ collections:
         multiple: true
         required: false
       - label: 'Add to specific daily menu page'
-        name: 'include-in-daily-menus'
+        name: 'includeInDailyMenus'
         widget: 'relation'
         collection: daily-menu
         display_fields: ['title']

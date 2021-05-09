@@ -2,9 +2,9 @@
 title: Modal demo
 description: Vamos a cerrar por obras
 global: false
-include-in-pages:
+includeInPages:
   - /
-include-in-daily-menus: ""
+includeInDailyMenus: ''
 content: Aquí ponemos el contenido principal
 image: /img/img_20210326_080241.jpg
 ---

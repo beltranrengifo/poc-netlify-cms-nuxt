@@ -1,9 +1,29 @@
 import { Middleware } from '@nuxt/types'
 
-const modal: Middleware = ({ route, store }) => {
+const checkModalVisibilityForRoute = ({
+  fullPath,
+  modals,
+}: {
+  fullPath: string
+  modals: any
+}) => {
+  console.log({ fullPath, modals })
+  return true
+}
+
+const modal: Middleware = async ({ route, store, $content }): Promise<void> => {
   const { getModals: modals } = store.getters
-  console.log(route, modals)
-  store.dispatch('handleModal', { showModal: true, content: { pepe: 'pepe' } })
+  const { fullPath } = route
+
+  const activeModals = await $content('modal')
+    .where({ includeInPages: { $in: [fullPath] } })
+    .fetch()
+
+  console.log(activeModals)
+
+  store.dispatch('handleModal', {
+    activeModals,
+  })
 }
 
 export default modal
