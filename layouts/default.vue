@@ -1,16 +1,24 @@
 <template>
   <div>
+    {{ modals }}
     <Nuxt />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapGetters } from 'vuex'
 
 export default Vue.extend({
   name: 'DefaultLayout',
 
   middleware: 'modal',
+
+  computed: {
+    ...mapGetters({
+      modals: 'getActiveModals',
+    }),
+  },
 })
 </script>
 

@@ -1,6 +1,5 @@
 <template>
   <section class="container flex-col">
-    {{ modals }}
     <h1 class="text-4xl">{{ content.title }}</h1>
     <h2 class="text-2xl">{{ content.description }}</h2>
     <ul>
@@ -31,7 +30,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapGetters } from 'vuex'
 
 export default Vue.extend({
   name: 'Home',
@@ -50,12 +48,6 @@ export default Vue.extend({
         { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
       ],
     }
-  },
-
-  computed: {
-    ...mapGetters({
-      modals: 'getModals',
-    }),
   },
 })
 </script>
