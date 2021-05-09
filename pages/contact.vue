@@ -21,7 +21,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Home',
+  name: 'Contact',
 
   async asyncData({ $content }): Promise<Object> {
     const content = await $content('page', 'contact').fetch()

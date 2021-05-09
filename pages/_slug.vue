@@ -20,7 +20,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Home',
+  name: 'Restaurant',
 
   async asyncData({ $content, params }): Promise<Object> {
     const content = await $content('page', params.slug).fetch()

@@ -16,11 +16,11 @@
     <ul>
       <n-link
         v-for="menu in menus"
-        :key="menu.path"
+        :key="menu.title"
         :to="menu.path"
         class="block underline"
       >
-        {{ menu.title }}
+        {{ menu.title }} - {{ menu.path }}
       </n-link>
       <li>...</li>
     </ul>
@@ -34,10 +34,12 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'Home',
 
-  async asyncData({ $content }): Promise<Object> {
+  async asyncData({ $content, payload }): Promise<Object> {
+    if (payload) return { menus: payload }
+
     const content = await $content('page', 'home').fetch()
 
-    const menus = await $content('menu').only(['title']).fetch()
+    const menus = await $content('daily-menu').fetch()
 
     return { content, menus }
   },

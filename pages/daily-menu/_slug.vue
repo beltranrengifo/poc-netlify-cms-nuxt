@@ -20,10 +20,10 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Home',
+  name: 'Menu',
 
   async asyncData({ $content, params }): Promise<Object> {
-    const content = await $content('menu', params.slug).fetch()
+    const content = await $content('daily-menu', params.slug).fetch()
 
     return { content }
   },
