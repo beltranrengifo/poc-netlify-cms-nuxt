@@ -7,6 +7,4 @@ includeInPages:
 includeInDailyMenus: ''
 content: Aquí ponemos el contenido principal
 image: /img/img_20210326_080241.jpg
-includeInPages:
-  - /
 ---
