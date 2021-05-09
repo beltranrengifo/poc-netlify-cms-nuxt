@@ -9,7 +9,7 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'daily menu'
+  - name: 'daily-menu'
     label: 'Daily Menu'
     folder: 'content/daily-menu'
     format: 'frontmatter'
@@ -46,13 +46,26 @@ collections:
     editor:
       preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string', tagname: 'h1' }
-      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
+      - {
+          label: 'Title',
+          name: 'title',
+          widget: 'string',
+          tagname: 'h1',
+          required: true,
+        }
+      - {
+          label: 'Draft',
+          name: 'draft',
+          widget: 'boolean',
+          default: true,
+          required: false,
+        }
       - { label: 'Description', name: 'description', widget: 'string' }
       - {
           label: 'Use this modal in all pages',
           name: 'global',
           widget: 'boolean',
+          required: false,
         }
       - label: 'Add to specific pages'
         name: 'include-in-pages'
@@ -62,11 +75,15 @@ collections:
         search_fields: ['title']
         value_field: 'title'
         multiple: true
+        required: false
       - label: 'Add to specific daily menu page'
         name: 'include-in-daily-menus'
         widget: 'relation'
-        collection: 'daily-menu'
+        collection: daily-menu
         display_fields: ['title']
         search_fields: ['title']
         value_field: 'title'
         multiple: true
+        required: false
+      - { label: 'Contenido', name: 'content', widget: 'markdown' }
+      - { label: 'Image', name: 'image', widget: 'image' }

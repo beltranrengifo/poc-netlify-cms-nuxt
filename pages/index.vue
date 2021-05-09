@@ -1,5 +1,6 @@
 <template>
   <section class="container flex-col">
+    {{ modals }}
     <h1 class="text-4xl">{{ content.title }}</h1>
     <h2 class="text-2xl">{{ content.description }}</h2>
     <ul>
@@ -30,13 +31,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapGetters } from 'vuex'
 
 export default Vue.extend({
   name: 'Home',
 
-  async asyncData({ $content, payload }): Promise<Object> {
-    if (payload) return { menus: payload }
-
+  async asyncData({ $content }): Promise<Object> {
     const content = await $content('page', 'home').fetch()
 
     const menus = await $content('daily-menu').fetch()
@@ -50,6 +50,12 @@ export default Vue.extend({
         { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
       ],
     }
+  },
+
+  computed: {
+    ...mapGetters({
+      modals: 'getModals',
+    }),
   },
 })
 </script>
