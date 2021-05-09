@@ -1,10 +1,10 @@
 <template>
   <section class="container flex-col">
-    <h1 class="text-4xl">{{ title }}</h1>
-    <h2 class="text-2xl">{{ description }}</h2>
+    <h1 class="text-4xl">{{ content.title }}</h1>
+    <h2 class="text-2xl">{{ content.description }}</h2>
     <ul>
       <n-link
-        v-for="item in navigation"
+        v-for="item in content.menu"
         :key="item.to"
         :to="item.to"
         class="block underline"
@@ -35,14 +35,11 @@ export default Vue.extend({
   name: 'Home',
 
   async asyncData({ $content }): Promise<Object> {
-    const { menu: navigation, title, description } = await $content(
-      'page',
-      'home'
-    ).fetch()
+    const content = await $content('page', 'home').fetch()
 
     const menus = await $content('menu').only(['title']).fetch()
 
-    return { navigation, menus, title, description }
+    return { content, menus }
   },
 
   head() {
