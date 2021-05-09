@@ -28,4 +28,18 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Navigation', name: 'menu', widget: 'list' }
+      - label: 'Navigation'
+        name: 'menu'
+        widget: 'list'
+        default: ['']
+  - name: 'modal'
+    label: 'Modal'
+    folder: 'content/modal'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
