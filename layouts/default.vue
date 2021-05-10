@@ -1,7 +1,16 @@
 <template>
   <div>
-    {{ modals }}
     <Nuxt />
+    <div v-for="modal in modals" v-show="show" :key="modal.slug" class="modal">
+      <div class="modal__inner">
+        <h1>{{ modal.title }}</h1>
+        <p>{{ modal.description }}</p>
+        <p>...</p>
+        <img :src="modal.image" alt="" class="max-w-xs" />
+        <p>...</p>
+        <button @click="show = false">Cerrar</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -14,6 +23,12 @@ export default Vue.extend({
 
   middleware: 'modal',
 
+  data() {
+    return {
+      show: true,
+    }
+  },
+
   computed: {
     ...mapGetters({
       modals: 'getActiveModals',
@@ -22,6 +37,34 @@ export default Vue.extend({
 })
 </script>
 
+<style scoped>
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.modal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  opacity: 0.95;
+  z-index: -1;
+}
+.modal__inner {
+  border: 10px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+</style>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
