@@ -6,8 +6,7 @@
         <h1>{{ modal.title }}</h1>
         <p>{{ modal.description }}</p>
         <p>...</p>
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <p v-html="modal.content" />
+        <vue-markdown>{{ modal.content }}</vue-markdown>
         <img :src="modal.image" alt="" class="max-w-xs" />
         <p>...</p>
         <button @click="show = false">Cerrar</button>
