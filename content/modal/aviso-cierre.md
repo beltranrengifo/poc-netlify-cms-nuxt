@@ -6,6 +6,16 @@ includeInPages:
   - /
 includeInDailyMenus:
   - /daily-menu/ojala
-content: Aquí ponemos el contenido principal
+content: >-
+  Aquí ponemos el contenido principal, enriquecido con los habitual, **bold**,
+  *italics*, etc
+
+
+
+
+  ### Un titulo
+
+
+  > Una cita
 image: /img/img_20210326_080241.jpg
 ---
