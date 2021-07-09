@@ -1,7 +1,7 @@
 ---
 title: Grupo La Musa
-description: Descripción de la página de inicio
 draft: true
+description: Descripción de la página de inicio hola hola
 path: /
 menu:
   - to: /la-musa
